@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         try {
-            const response = await axios.post("http://localhost:5000/api/user/login", {
+            const response = await axios.post("https://talentio-project.onrender.com/api/user/login", {
                 email,
                 password,
             });

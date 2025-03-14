@@ -7,20 +7,20 @@ const Register = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const handleLogin = async () => {
         try {
             console.log("HELLO");
-       
+
             const response = await axios.post(
-                "http://localhost:5000/api/user/register",
+                "https://talentio-project.onrender.com/api/user/register",
                 {
-                    name:name,
+                    name: name,
                     email: email,
                     password: password,
                 }
             );
-            if(response){
+            if (response) {
                 navigate("/login");
             }
         }
@@ -48,9 +48,9 @@ const Register = () => {
 
                     <input type="password" name="password" placeholder="Enter Your Password" value={password}
                         onChange={(e) => setPassword(e.target.value)} />
-                    <div style={{ color: 'black', fontSize: '14px', alignSelf: 'self-start',cursor:'pointer' }} onClick={()=>navigate("/")}>Already Have an account? <a>Login</a></div>
+                    <div style={{ color: 'black', fontSize: '14px', alignSelf: 'self-start', cursor: 'pointer' }} onClick={() => navigate("/")}>Already Have an account? <a>Login</a></div>
                     <div type="submit" id="buttonId" className='button' onClick={() => handleLogin()}>
-                       Register
+                        Register
                     </div>
 
 
